@@ -14,26 +14,26 @@ _main() {
   fi
 
   if [ "$1" = 'cassandra-web' ]; then
-    if [ "x${CASSANDRA_HOSTS}" != "x" ]; then
-      set -- "$@" --hosts ${CASSANDRA_HOSTS}
+    if [ "x${CASSANDRAWEB_HOSTS}" != "x" ]; then
+      set -- "$@" --hosts ${CASSANDRAWEB_HOSTS}
     else
       set -- "$@" --hosts 127.0.0.1
     fi
 
-    if [ "x${CASSANDRA_PORT}" != "x" ]; then
-      set -- "$@" --port ${CASSANDRA_PORT}
+    if [ "x${CASSANDRAWEB_PORT}" != "x" ]; then
+      set -- "$@" --port ${CASSANDRAWEB_PORT}
     else
       set -- "$@" --port 9042
     fi
 
-    if [ "x${CASSANDRA_USERNAME}" != "x" ]; then
-      set -- "$@" --username ${CASSANDRA_USERNAME}
+    if [ "x${CASSANDRAWEB_USERNAME}" != "x" ]; then
+      set -- "$@" --username ${CASSANDRAWEB_USERNAME}
     else
       set -- "$@" --username cassandra
     fi
 
-    if [ "x${CASSANDRA_PASSWORD}" != "x" ]; then
-      set -- "$@" --password "${CASSANDRA_PASSWORD}"
+    if [ "x${CASSANDRAWEB_PASSWORD}" != "x" ]; then
+      set -- "$@" --password "${CASSANDRAWEB_PASSWORD}"
     else
       set -- "$@" --password cassandra
     fi
