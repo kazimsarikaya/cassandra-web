@@ -1,8 +1,11 @@
 FROM alpine:latest as build
 RUN apk update && \
-    apk add ruby ruby-dev make gcc libc-dev g++ && \
+    apk add ruby ruby-dev make gcc libc-dev g++ git && \
     gem install --user-install bundler etc bigdecimal \
-                               json bundler cassandra-web
+                               json bundler
+RUN git clone https://github.com/avalanche123/cassandra-web && \
+    cd cassandra-web && gem build cassandra-web.gemspec && \
+    gem install --user-install ./cassandra-web-*.gem                              
 
 
 FROM alpine:latest
